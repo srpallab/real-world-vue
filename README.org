@@ -1,0 +1,77 @@
+#+title: ~Vue~ Basic with ~CLI~
+#+author: Shafiqur Rahman
+
+* Install ~Vue CLI~
+  #+BEGIN_SRC bash
+    npm install -g @vue/cli
+  #+END_SRC
+* Project ~real-world-vue~
+** Project setup
+   #+BEGIN_SRC bash
+     npm install
+   #+END_SRC
+** Compiles and hot-reloads for development
+   #+BEGIN_SRC bash
+     npm run serve
+   #+END_SRC
+** Compiles and ~minifies~ for production
+   #+BEGIN_SRC bash
+     npm run build
+   #+END_SRC
+** Lints and fixes files
+   #+BEGIN_SRC bash
+     npm run lint
+   #+END_SRC
+** Customize configuration
+   #+begin_example
+     See [Configuration Reference](https://cli.vuejs.org/config/).
+   #+end_example
+* File Structure 
+  - ~node_modules~: Dependencies needed to build project
+  - ~public~: Files don't want to process through ~Webpack~
+  - ~assets~: Store Images, fonts etc
+  - ~components~: Building blocks of the app
+  - ~router~: App Navigation
+  - ~store~: ~Vuex~ state management 
+  - ~views~: Components for different views of app
+  - ~App.vue~: Root Component. All the components are nested within it
+  - ~main.js~: Renders App and Mounts it to ~DOM~
+* Single File Components
+  - ~Example.vue~
+    - template
+    - script
+    - style
+* Routes
+  - ~router/index.html~
+    #+BEGIN_SRC js
+      import EventCard from '../views/EventCard.vue';
+      import About from '../views/About.vue';
+      const routes = [
+	  {
+	      path: '/',
+	      name: 'EventCard',
+	      component: EventCard
+	  },
+	  {
+	      path: '/about',
+	      name: 'About',
+	      component: About
+	  }
+      ]
+    #+END_SRC
+  - ~App.vue~
+    #+BEGIN_SRC html
+      <div id="app">
+	<div id="nav">
+	  <router-link to="/">EventList</router-link>
+	  <router-link to="/about">About</router-link>
+	</div>
+	<router-view />
+      </div>
+    #+END_SRC
+* ~Axios~ API Calls
+  - A mock database to pull data from
+    - https://my-json-server.typicode.com/
+  - Install ~Axios~
+  
+  
